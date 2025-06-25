@@ -1,0 +1,159 @@
+﻿# A5:ER FORMAT:18
+# A5:ER ENCODING:UTF8
+# A5:ER Mk-1 Copyright © 2007 m.matsubara
+# A5:SQL Mk-2 Version 2.20.0 beta 20 Copyright © 1997 - 2024 m.matsubara
+#  https://a5m2.mmatsubara.com
+
+[Manager]
+ProjectName=FacilityManagerER
+Author=
+MaxEntityRowShow=1000
+ReadOnlyRecommend=0
+Page=Main
+PageInfo="Main",7,"A1Landscape",$FFFFFF
+LogicalView=1
+DecodeDomain=0
+ViewModePageIndividually=1
+ViewMode=7
+ViewFormat=0
+UseNondependenceDashLine=0
+FontName=Tahoma
+FontSize=6
+PaperSize=A4Landscape
+HeaderLeft=
+HeaderCenter=
+HeaderRight=
+FooterLeft=
+FooterCenter=
+FooterRight=
+ShowPageoutRelation=1
+RDBMSType=6
+RDBMSTypeName=MySQL
+DefaultPkName=%0:s_PKC
+DefaultPkIndexName=%0:s_PKI
+DefaultIndexName=%0:s_IX%1:d
+DefaultFkName=%0:s_FK%1:d
+SqlSeparator=0
+UpperCaseKeyword=0
+ShowTag=1
+ShowCommonAttributes=0
+BugFixEntityWidth=1
+
+[Entity]
+PName=mstr_personnel
+LName=社員マスタ
+Comment=
+TableInnerOption=
+TableOption=
+Page=Main
+Left=1000
+Top=400
+Field="社員ID","mstr_personnel_id","BIGINT","NOT NULL",0,"","",$FFFFFFFF,""
+Field="名前","name","@VARCHAR","NOT NULL",,"","",$FFFFFFFF,""
+Field="カナ","kana","@VARCHAR",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20250625221208
+Position="Main",1000,400
+ZOrder=1
+
+[Entity]
+PName=mstr_authority
+LName=認証マスタ
+Comment=
+TableInnerOption=
+TableOption=
+Page=Main
+Left=300
+Top=200
+Field="認証ID","mstr_authority_id","BIGINT","NOT NULL",0,"","",$FFFFFFFF,""
+Field="社員ID","mstr_personnel_id","BIGINT","NOT NULL",1,"","",$FFFFFFFF,""
+Field="アカウント","account","@VARCHAR","NOT NULL",,"","",$FFFFFFFF,""
+Field="パスワード","passwd","@VARCHAR","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20250625214556
+Position="Main",300,200
+ZOrder=2
+
+[Entity]
+PName=mstr_email
+LName=Eメールマスタ
+Comment=
+TableInnerOption=
+TableOption=
+Page=Main
+Left=1600
+Top=250
+Field="EメールID","mstr_email_id","BIGINT","NOT NULL",0,"","",$FFFFFFFF,""
+Field="社員ID","mstr_personnel_id","BIGINT","NOT NULL",1,"","",$FFFFFFFF,""
+Field="Eメール","mail","@VARCHAR","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20250625220401
+Position="Main",1600,250
+ZOrder=3
+
+[Relation]
+Entity1=mstr_personnel
+Entity2=mstr_email
+RelationType1=1
+RelationType2=3
+Fields1=mstr_personnel_id
+Fields2=mstr_personnel_id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,515,5709,671,R,R,""
+Dependence=1
+Caption=
+PName=
+LineMode=0
+Bar1=52
+Bar2=571
+Bar3=67
+TermPos1=R
+TermPos2=R
+ZOrder=4
+
+[Relation]
+Entity1=mstr_personnel
+Entity2=mstr_authority
+RelationType1=1
+RelationType2=3
+Fields1=mstr_personnel_id
+Fields2=mstr_personnel_id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,985,3502,591,R,R,""
+Dependence=1
+Caption=
+PName=
+LineMode=0
+Bar1=98
+Bar2=350
+Bar3=59
+TermPos1=R
+TermPos2=R
+ZOrder=5
+
+[Entity]
+PName=mstrr_depaertment
+LName=部署マスタ
+Comment=
+TableInnerOption=
+TableOption=
+Page=Main
+Left=1600
+Top=650
+Field="部署ID","mstr_department_id","BIGINT","NOT NULL",0,"","",$FFFFFFFF,""
+Field="部署名","name","@VARCHAR","NOT NULL",,"","",$FFFFFFFF,""
+Field="カナ","kana","@VARCHAR",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20250625220749
+Position="Main",1600,650
+ZOrder=6
